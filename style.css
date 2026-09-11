@@ -1,0 +1,100 @@
+body {
+    background-image: url("images/flowers.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Navigation background image */
+nav {
+    background-image: url("images/NavBackground.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    height: 400px;
+}
+
+/* Navigation Links Styles */
+nav a {
+    background-color: #fff5f7;
+    color: black;
+    text-decoration: none;
+    font-size: 29px;
+
+    padding: 10px 20px;
+    border: 1px solid pink;
+}
+
+/* Top Content */
+.top-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.flora-box{
+    width: 500px;
+    position: relative;
+    top: -100px;
+}
+
+.flora-image {
+   width: 500px;
+   height: auto;
+   display: block;
+}
+
+/* Welcome box */
+.welcome {
+    background-color: #fff5f7;
+    background-image: url("images/pinkBow.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    width: 500px;
+    padding: 40px 20px;
+    text-align: center;
+  
+}
+
+.welcome h1 {
+    font-size: 44px;
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.welcome p {
+    font-size: 25px;
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+}
+
+
+/* Style for the calendar section */
+.calendar {
+    width: 300px;
+    padding: 15px;
+    background-color: #fff5f8;
+    border: 2px solid pink;
+}
+
+.calendar h2 {
+    text-align: center;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.calendar-grid div {
+    padding: 8px;
+    border: 1px solid pink;
+}
