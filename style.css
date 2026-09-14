@@ -1,21 +1,10 @@
 body {
-    background-image: url("images/flowers.jpeg");
+    background-image: url("images/assets/background.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 /* Navigation background image */
-nav {
-    background-image: url("images/NavBackground.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    height: 400px;
-}
 
 /* Navigation Links Styles */
 nav a {
@@ -37,13 +26,13 @@ nav a {
     margin-top: 20px;
 }
 
-.flora-box{
+.drawling-box{
     width: 500px;
     position: relative;
     top: -100px;
 }
 
-.flora-image {
+.drawling-image {
    width: 500px;
    height: auto;
    display: block;
