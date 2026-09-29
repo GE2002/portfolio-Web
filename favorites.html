@@ -11,11 +11,11 @@
     <body>
 
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About me</a>
-            <a href="work.html">My Work</a>
-            <a href="favorites.html">Favorites</a>
-            <a href="contact.html">Contact</a>
+            <a href="index.html" aria-current="page">Home</a>
+            <a href="about.html" aria-current="page">About me</a>
+            <a href="work.html" aria-current="page">My Work</a>
+            <a href="favorites.html" aria-current="page">Favorites</a>
+            <a href="contact.html" aria-current="page">Contact</a>
         </nav>
 
         <main>
@@ -24,13 +24,24 @@
             <div class="side-section">
                 <img src="images/assets/computer.png" alt="Computer">
                 <img src="images/assets/safari.png" alt="Safari">
-                <img src="images/assets/chrome.png" alt="Chrome">
-                <img src="images/assets/folder.png" alt="Folder">
+                <img class="chrome-icon" src="images/assets/chrome.png" alt="Chrome">
+                <img class="folder-icon" src="images/assets/folder.png" alt="Folder">
                 <img src="images/assets/trash.png" alt="Trash">
             </div>
 
+            <section class="favorite-music">
+                <h2>My Favorite Songs</h2>
+
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/videoseries?list=YOUR_PLAYLIST_ID"
+                    title="My favorite songs"
+                    allow="encrypted-media; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
+            </section>
+
             <section class="favorite-section">
-                <img src="images/assets/Music.png" alt="music">
+                <img class="music-player" src="images/assets/music-player.png" alt="Pink music player">
 
                 <!--HOBBIES LIST-->
                 <h1>My Hobbies</h1>
@@ -56,13 +67,13 @@
                     <li>Music</li>
                 </ul>
 
-                <img src="images/assets/Matcha.png" alt="cat drinking matcha">
+                <img class="matcha-cat" src="images/assets/killua-matcha-collage.png" alt="Killua with two matcha drinks">
 
 
                 <!--Favorite gallery-->
                 <div class="gallery">
-                    <h3>Shows:</h3>
                     <div class="show-gallery">
+                        <h3>Shows:</h3>
                         <img src="images/assets/monster high.png" alt="MonsterHigh">
                         <ul>
                             <li>Monster High</li>
@@ -88,7 +99,7 @@
                     <!--Travel gallery-->
                     <div class="travel-gallery">
                         <h3>Travel:</h3>
-                        <img src="images/assets/travel.png" alt="travel image">
+                        <img src="images/assets/y2k-travel.png" alt="travel image">
 
                         <ul>
                             <li>China</li>
@@ -100,8 +111,8 @@
 
                     <!--Aesthetic-->
                     <div class="aesthetic-gallery">
-                        <h3>Aesthetic:</h3>
-                        <img src="images/assets/cartoon.png" alt="cartoon image">
+                        <h3>My Aesthetic:</h3>
+                        <img src="images/assets/Bunny.png" alt="bunny reading a book">
 
                         <ul>
                             <li>Pink</li>
@@ -115,5 +126,6 @@
             </section>
 
         </main>
+         <script src="script.js"></script>
     </body>
 </html>

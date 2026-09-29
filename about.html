@@ -3,74 +3,131 @@
 
     <head>
         <meta charset="UTF-8">
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
         <title>About Me | Ginna's Portfolio</title>
+
         <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About me</a>
-            <a href="work.html">My Work</a>
-            <a href="favorites.html">Favorites</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+        <header>
+            <nav aria-label="Main navigation">
+                <a href="index.html" aria-current="page">Home</a>
+                <a href="about.html" aria-current="page">About Me</a>
+                <a href="work.html" aria-current="page">My Work</a>
+                <a href="favorites.html" aria-current="page">Favorites</a>
+                <a href="contact.html" aria-current="page">Contact</a>
+            </nav>
+        </header>
 
-        <main>
+        <main class="about-layout">
 
-            <!-- ABOUT ME SECTION -->
-             <div class="side-section">
-                <img src="images/assets/computer.png" alt="Computer">
-                <img src="images/assets/safari.png" alt="Safari">
-                <img src="images/assets/chrome.png" alt="Chrome">
-                <img src="images/assets/folder.png" alt="Folder">
-                <img src="images/assets/trash.png" alt="Trash">
-             </div>
+            <!-- DECORATIVE SIDEBAR -->
+            <div class="side-section" aria-hidden="true">
+                <img src="images/assets/computer.png" alt="">
+                <img src="images/assets/safari.png" alt="">
 
-            <section class="about-me">
-                <h1>About Me</h1>
-                <p>
-                    Hi! I’m Ginna ♡ I’m an aspiring front-end web developer who loves combining creativity with code. 
-                    I enjoy creating colorful, interactive, and user-friendly websites using HTML, CSS, and JavaScript. 
-                    I’m always learning new techniques and challenging myself with projects that help me grow as a developer. 
-                    My favorite part of web development is taking an idea and watching it come to life on the screen.
-                </p>
+                <img
+                    class="chrome-icon"
+                    src="images/assets/chrome.png"
+                    alt="">
 
-                <!-- IMAGE GRID -->
+                <img
+                    class="folder-icon"
+                    src="images/assets/folder.png"
+                    alt="">
+
+                <img src="images/assets/trash.png" alt="">
+            </div>
+
+            <!-- ABOUT ME -->
+            <div class="about-top">
+                <section class="about-me">
+                    <h1>About Me</h1>
+
+                    <p>
+                        Hi! I’m Ginna ♡ I’m an aspiring front-end web developer
+                        who loves combining creativity with code. I enjoy creating
+                        colorful, interactive, and user-friendly websites using
+                        HTML, CSS, and JavaScript. I’m always learning new
+                        techniques and challenging myself with projects that help
+                        me grow as a developer. My favorite part of web development
+                        is taking an idea and watching it come to life on the
+                        screen.
+                    </p>
+
+                    
+                </section>
 
                 <div class="about-me-image">
-                    <img src="images/assets/fairyKitty.png" alt="cat with wings">
-                    
+                        <img
+                            src="images/assets/tom.png"
+                            alt="A cat with fairy wings"
+                        >
+                    </div>
+            </div>
 
+            <!-- LANGUAGE SKILLS -->
+            <section class="language-skills">
+                <h2>Language Skills</h2>
+
+                <img
+                    src="images/assets/Languages.png"
+                    alt="My HTML, CSS, JavaScript, and Python skill levels"
+                >
+            </section>
+
+            <!-- FUN FACTS -->
+            <section class="fun-facts">
+                <h2>Fun Facts About Me</h2>
+
+                <ul>
+                    <li>I still enjoy watching Winx Club.</li>
+
+                    <li>
+                        I am an ISFJ: Introverted, Sensing, Feeling,
+                        and Judging.
+                    </li>
+
+                    <li>I have a cat named Killua.</li>
+
+                    <li>
+                        I speak Spanish and English, and I am currently
+                        learning Mandarin.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- INTERACTIVE CAMERA -->
+            <section class="camera-image">
+                <h2>Click Me to Take a Picture</h2>
+
+                <button
+                    id="cameraButton" class="camera-button" type="button" aria-controls="photoResult" aria-expanded="false">
+                    <img src="images/assets/camera-real.png" alt="Click to take a funny picture">
+                </button>
+
+                <div id="cameraFlash" class="camera-flash"></div>
+                
+                <div id="photoResult" class="photo-result" aria-live="polite" hidden>
+                    <div class="photo-card">
+                        <button id="closePhoto" class="close-photo" type="button" aria-label="Close picture">
+                            X
+                        </button>
+
+                        <img src="monkey.jpeg" alt="Funny monkey photo">
+                        <p>Oh... wow... you actually came out alright</p>
+                    </div>
                 </div>
             </section>
 
-                
-                <section class="fun-facts">
-                        <h2>Fun Facts About Me</h2>
-                        <ul>
-                            <li>Even though I am 24 years old I still like watching the winks.</li>
-                            <li>I am ISFJ (Introverted, Sensing, Feeling, and Judging).</li>
-                            <li>I have a cat named Killua.</li>
-                            <li>I am fluent in Spanish, English and I am now learning Mandarin</li>
+        </main>
 
-                        </ul>
-                    </section>
-
-                    <!--LANGUAGE SKILLS SECTION-->
-
-                    <section class="language-skills">
-                        <h2>Language Skills</h2>
-                        <img src="images/assets/Languages.png" alt="language skills">
-                    </section>
-
-                    <section class="camera-image">
-                        <h3>Click Me To Take A Picture</h3>
-                        <img src="images/assets/camera.png" alt="taking user a picture">
-                    </section>
-        </main>        
+        <script src="script.js"></script>
 
     </body>
 </html>

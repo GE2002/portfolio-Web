@@ -11,11 +11,11 @@
     <body>
 
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About me</a>
-            <a href="work.html">My Work</a>
-            <a href="favorites.html">Favorites</a>
-            <a href="contact.html">Contact</a>
+            <a href="index.html" aria-current="page">Home</a>
+            <a href="about.html" aria-current="page">About me</a>
+            <a href="work.html" aria-current="page">My Work</a>
+            <a href="favorites.html" aria-current="page">Favorites</a>
+            <a href="contact.html" aria-current="page">Contact</a>
         </nav>
 
         <main>
@@ -24,20 +24,22 @@
              <div class="side-section">
                 <img src="images/assets/computer.png" alt="Computer">
                 <img src="images/assets/safari.png" alt="Safari">
-                <img src="images/assets/chrome.png" alt="Chrome">
-                <img src="images/assets/folder.png" alt="Folder">
+                <img class="chrome-icon" src="images/assets/chrome.png" alt="Chrome">
+                <img class="folder-icon" src="images/assets/folder.png" alt="Folder">
                 <img src="images/assets/trash.png" alt="Trash">
              </div>
 
             <div class="form-section">
                 <h1>My Work</h1>
+
                 <p>Here are some of the projects I've worked on. 
                     Each one has helped me learn new skills and grow as a web developer.
                 </p>
 
-                <img src="images/assets/pixi.png" alt="Cute stars">
-                <img src="images/assets/working cat.png" alt="Cat that is working">
+                <img class="pixi-decoration" src="images/assets/pixi.png" alt="">
+                <img class="working-cat" src="images/assets/killua-study-kitten-v3.png" alt="Cat that is working">
 
+                <!--Table about My Work-->
 
                 <table class="project-table">
                     <caption>My Work</caption>
@@ -57,9 +59,7 @@
                         <tr>
                             <td>
                                 <img
-                                    src="images/projects/ribbonland.png"
-                                    alt="Screenshot of the RibbonLand website"
-                                >
+                                    src="images/projects/ribbonland.png" alt="Screenshot of the RibbonLand website">
                             </td>
 
                             <th scope="row">RibbonLand</th>
@@ -71,11 +71,7 @@
 
                             <td>
                                 <a
-                                    href="https://example.com/ribbonland"
-                                    target="_blank"
-                                    rel="noopener"
-                                >
-                                    View Project
+                                    href="https://example.com/ribbonland" target="_blank" rel="noopener"> View Project
                                 </a>
                             </td>
                         </tr>
@@ -85,9 +81,7 @@
                         <tr>
                             <td>
                                 <img
-                                    src="images/projects/FortuneCookie.png"
-                                    alt="Screenshot of the Fortune Cookie website"
-                                >
+                                    src="images/projects/FortuneCookie.png" alt="Screenshot of the Fortune Cookie website">
                             </td>
 
                             <th scope="row">Fortune Cookie</th>
@@ -98,11 +92,7 @@
 
                             <td>
                                 <a
-                                    href="https://example.com/FortuneCookie"
-                                    target="_blank"
-                                    rel="noopener"
-                                >
-                                    View Project
+                                    href="https://example.com/FortuneCookie" target="_blank" rel="noopener"> View Project
                                 </a>
                             </td>
                         </tr>
@@ -113,12 +103,10 @@
                         <tr>
                             <td>
                                 <img
-                                    src="images/projects/Tic-tac-toe.png"
-                                    alt="Screenshot of the Fortune Cookie website"
-                                >
+                                    src="images/projects/Tic-tac-toe.png" alt="Screenshot of the Fortune Cookie website">
                             </td>
 
-                            <th scope="row">Tic-Tac_Toe/th>
+                            <th scope="row">Tic-Tac-Toe</th>
 
                             <td>
                                 A fun website that you can play.
@@ -126,24 +114,17 @@
 
                             <td>
                                 <a
-                                    href="https://example.com/Tic-Tac-Toe"
-                                    target="_blank"
-                                    rel="noopener"
-                                >
-                                    View Project
+                                    href="https://example.com/Tic-Tac-Toe" target="_blank" rel="noopener"> View Project
                                 </a>
                             </td>
                         </tr>
 
-
-
-
-                        </tr>
                     </tbody>
                 </table>
             </div>
 
         </main>
+         <script src="script.js"></script>
     </body>
 </html>
 

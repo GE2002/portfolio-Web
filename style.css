@@ -1,53 +1,431 @@
-body {
-    background-image: url("images/assets/background.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+* {
+    box-sizing: border-box;
 }
 
-/* Navigation background image */
+html {
+    min-height: 100%;
+    scrollbar-color: auto;
+}
+
+/* Chrome, Edge, and Safari */
+html::-webkit-scrollbar {
+    width: 18px;
+    height: 18px;
+}
+
+/* Empty scrollbar track */
+html::-webkit-scrollbar-track {
+    background: #eaf2ff;
+    border: 1px solid pink;
+    border-radius: 0;
+}
+
+/* Movable scrollbar handle */
+html::-webkit-scrollbar-thumb {
+    min-height: 45px;
+
+    background: linear-gradient(
+        to right,
+        #fff5f7 0%,
+        #c43478 50%,
+        pink 100%
+    );
+
+    border: 1px solid pink;
+    border-radius: 0;
+    box-shadow:
+        inset 1px 1px white,
+        inset -1px -1px #ef8fba;
+}
+
+/* Hovering over the handle */
+::-webkit-scrollbar-thumb:hover {
+    background: #c43478;
+}
+
+/* Top and bottom arrow-button areas */
+::-webkit-scrollbar-button {
+    display: block;
+    width: 18px;
+    height: 18px;
+
+    background-color: #fff5f7;
+    border: 1px solid pink;
+    border-radius: 0;
+    box-shadow:
+        inset 1px 1px white,
+        inset -1px -1px #ef8fba;
+}
+
+/* Bottom-right corner when both scrollbars appear */
+::-webkit-scrollbar-corner {
+    background-color: #fff5f7;
+    border: 1px solid pink;
+    border-radius: 0;
+}
+
+
+body {
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+
+    background-image: url("images/coquette.jpeg");
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: repeat-y;
+}
+
+
+/*Pink Browser*/
+body::before {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 16.5vw;
+
+    background-image: url(images/assets/ie-pink-header.png);
+    background-size: 100% auto;
+    background-position: top center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+header,
+nav,
+main {
+    position: relative;
+    z-index: 1;
+}
+
 
 /* Navigation Links Styles */
-nav a {
-    background-color: #fff5f7;
-    color: black;
-    text-decoration: none;
-    font-size: 29px;
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding-top: 17vw;
+    padding-bottom: 20px;
+}
 
-    padding: 10px 20px;
-    border: 1px solid pink;
+nav a {
+   width: 150px;
+   padding: 10px 15px;
+
+   color: #7e3157;
+   background-color: #fff5f7;
+   border:  2px solid pink;
+   box-shadow: 3px 3px 0 rgba(196, 52, 120, 0.18);
+
+   color: black;
+   font-size: 20px;
+   text-align: center;
+   text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: white;
+    background-color: #c43478;
+    transform: translateY(-2px);
+}
+
+
+header {
+    height: auto;
+}
+
+/*Side Section image*/
+.side-section {
+    position: absolute;
+    z-index: 5;
+    top:  1vh;
+    left: 4vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 90px;
+    width: 70px;
+}
+
+.side-section img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+/*Chaning the size of the chrome and. folder*/
+.side-section .chrome-icon,
+.side-section .folder-icon {
+    width: 60px;
+    height: 60px;
+    align-items: center;
+}
+
+.side-section img:hover {
+    transform: scale(1.1);
 }
 
 /* Top Content */
 .top-content {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 40px;
+    position: relative;
+    min-height: 900px;
     margin-top: 20px;
 }
 
-.drawling-box{
-    width: 500px;
-    position: relative;
-    top: -100px;
+#drawingCanvas {
+    position: absolute;
+    z-index: 2;
+    top: 11.4%;
+    left: 13.7%;
+    width: 83.9%;
+    height: 69.4%;
+    display: block;
+    cursor: crosshair;
+    touch-action: none;
 }
 
-.drawling-image {
-   width: 500px;
-   height: auto;
+.drawing-box{
+    position: absolute;
+    z-index: 3;
+    top: 20px;
+    left: 13%;
+    width: min(32vw, 500px);
+}
+
+.drawing-image {
    display: block;
+   width: 100%;
+   height: auto;
+}
+
+.canvas-controls {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: max-content;
+    transform: translateX(-50%);
+}
+
+.canvas-hint {
+    margin: 0;
+    padding: 8px 14px;
+
+    color: #9b315f;
+    background-color: #fff5f8;
+    border: 2px solid #ef8fba;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.clear-button,
+#reminderButton {
+    padding: 8px 14px;
+
+    color: #8a2e58;
+    background: linear-gradient(#fffafd, #f7bdd8);
+    border: 2px solid #d96699;
+    border-radius: 6px;
+    box-shadow:
+        inset 1px 1px 0 white,
+        3px 3px 0 rgba(196, 52, 120, 0.2);
+
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.clear-button:hover,
+#reminderButton:hover {
+    color: white;
+    background: linear-gradient(#e879ac, #c43478);
+    transform: translateY(-2px);
+}
+
+.clear-button:active,
+#reminderButton:active {
+    box-shadow: inset 2px 2px 3px rgba(90, 20, 50, 0.3);
+    transform: translateY(1px);
+}
+
+.clear-button:focus-visible,
+#reminderButton:focus-visible {
+    outline: 3px solid #8a2e58;
+    outline-offset: 3px;
+}
+
+/*Camera Flash*/
+.camera-flash {
+    position: absolute;
+    z-index: 9999;
+    inset: 0;
+
+    background-color: white;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.camera-flash.flash-active {
+    animation: cameraFlash 0.4s ease-out;
+}
+
+@keyframes cameraFlash {
+    0% {
+        opacity: 0;
+    }
+
+    35% {
+        opacity: 0.95;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/*Pop-up Background*/
+.photo-result {
+    position: fixed;
+    z-index: 9000;
+    inset: 0;
+
+    display: grid;
+    place-items: center;
+
+    padding: 20px;
+    background-color: rgba(87, 33, 60, 0.45);
+}
+
+.photo-result[hidden] {
+    display: none;
+}
+
+/*Pop-up Card*/
+.photo-card {
+    position: relative;
+    width: min(90%, 400px);
+    padding: 25px;
+
+    text-align: center;
+    background-color: #fff5f8;
+    border: 4px solid #ef8fba;
+    box-shadow: 8px 8px 0 #c43478;
+
+    animation: photoPop 0.35s ease-out;
+}
+
+.photo-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.photo-card p {
+    margin: 15px 0 0;
+    color: #8a2e58;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+/*Close Button*/
+.close-photo {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+
+    padding: 0;
+    color: #c43478;
+    background: transparent;
+    border: none;
+
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@keyframes photoPop {
+    from {
+        opacity: 0;
+        transform: scale(0.6) rotate(-5deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+
+.reminders {
+    position: absolute;
+    z-index: 4;
+    top: 420px;
+    right: 18%;
+    width: 680px;
+}
+
+.reminder-content {
+    position: absolute;
+    z-index: 2;
+
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 65%;
+    text-align: center;
+}
+
+.reminder-content p {
+    color: #8a2e58;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#reminderButton {
+    padding: 6px 12px;
+    background-color: #fff5f7;
+    border: 2px solid #efa3ef;
+    cursor: pointer;
+}
+
+#reminderButton:hover {
+    color: white;
+    background-color: #c43478;
+}
+
+.reminders img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 /* Welcome box */
 .welcome {
-    background-color: #fff5f7;
-    background-image: url("images/pinkBow.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+   position: absolute;
+   z-index: 3;
+   top: 20px;
+   right: 8%;
 
-    width: 500px;
-    padding: 40px 20px;
-    text-align: center;
+   width: 300px;
+   padding: 40px 20px;
+   text-align: center;
+
+   background-color: #fff5f7;
+   background-image: url(images/pinkBow.png);
+   background-size: 100% 100%;
+   background-repeat: no-repeat;
   
 }
 
@@ -63,27 +441,798 @@ nav a {
     font-family: "Courier New", Courier, monospace;
 }
 
+/*Contact Page*/
+.contact-layout {
+    display: grid;
+    grid-template-columns: minmax(400px, 620px) 320px;
+    justify-content: center;
+    align-items: start;
+    gap: 30px;
 
-/* Style for the calendar section */
-.calendar {
-    width: 300px;
-    padding: 15px;
-    background-color: #fff5f8;
-    border: 2px solid pink;
+    width: min(1100px, calc(100% - 180px));
+    margin: 30px auto 70px;
 }
 
-.calendar h2 {
+/*Contact form box*/
+.contact-card {
+    padding: 28px;
+
+    background-color: #fff5f7;
+    border: 6px solid #f19bc2;
+    box-shadow: 5px 5px 0 rgba(196, 52, 120, 0.18);
+}
+
+.contact-card h1 {
+   margin: 0 0 25px;
+
+   color: #b83f77;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-weight: bold;
+}
+
+.contact-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+
+.contact-card input,
+.contact-card textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 22px;
+    padding: 12px;
+
+    background-color: #fbdde9;
+    border: 2px solid transparent;
+    font: inherit;
+}
+
+.contact-card input:focus,
+.contact-card textarea:focus {
+   background-color: white;
+   border-color: #c43478;
+   outline: none;
+}
+
+.contact-card textarea {
+    min-height: 170px;
+    resize: vertical;
+}
+
+.contact-card button {
+    display: block;
+    margin: 10px auto 0;
+    padding: 10px 24px;
+
+    color: #8a2e58;
+    background: linear-gradient(#fffafd, #f7bdd8);
+    border: 2px solid #d96699;
+    box-shadow: 3px 3px 0 rgba(196, 52, 120, 0.2);
+
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contact-card button:hover {
+    color: white;
+    background-color: #c43478;
+}
+
+/* Y2K calendar */
+
+.calendar-content {
+    width: 320px;
+    padding: 5px;
+
+    color: #563849;
+    background-color: #ffddec;
+    border: 3px solid #e78eb5;
+    box-shadow:
+        inset 2px 2px 0 white,
+        4px 4px 0 rgba(196, 52, 120, 0.22);
+
+    font-family: "Courier New", Courier, monospace;
+}
+
+.calendar-content h2 {
+    margin: 0;
+    padding: 7px;
+
+    color: #286950;
+    background-color: #d9f2dc;
+    border: 1px solid #87bea0;
+
+    font-size: 18px;
+    text-align: center;
+}
+
+.calendar-subtitle {
+    margin: 3px 0;
+    padding: 3px;
+
+    color: #9b315f;
+    background-color: #fff5f8;
+
+    font-size: 12px;
     text-align: center;
 }
 
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
+    gap: 1px;
+
+    padding: 2px;
+    background-color: #e695b9;
+}
+
+.calendar-grid > div {
+    display: grid;
+    place-items: center;
+
+    min-width: 0;
+    min-height: 36px;
+    padding: 3px;
+
+    background-color: #fff8fb;
+    border: 1px solid #efbad0;
+
+    font-size: 12px;
     text-align: center;
 }
 
-.calendar-grid div {
-    padding: 8px;
-    border: 1px solid pink;
+/* Weekday headings */
+
+.day-name {
+    min-height: 25px !important;
+    color: #86305a;
+    background-color: #ffc6df !important;
+    font-weight: bold;
+}
+
+/* Sundays */
+
+.calendar-grid > div:nth-child(7n + 1) {
+    color: #d83c6b;
+    background-color: #ffe5ed;
+}
+
+/* Saturdays */
+
+.calendar-grid > div:nth-child(7n) {
+    color: #4067b1;
+    background-color: #e3edff;
+}
+
+/* Current or selected date */
+
+.calendar-grid .today {
+    color: white;
+    background-color: #c43478 !important;
+    border-color: #8a2e58;
+    box-shadow: inset 1px 1px 0 #f6aaca;
+    font-weight: bold;
+}
+
+/* Blank cells */
+
+.empty-day {
+    background-color: #f9d9e7 !important;
+}
+
+/**/
+.calendar-header {
+    display: grid;
+    grid-template-columns: 35px 1fr 35px;
+    align-items: center;
+
+    background-color: #d9f2dc;
+    border: 1px solid #87bea0;
+}
+
+.calendar-header h2 {
+    margin: 0;
+    padding: 7px;
+    border: none;
+    background: transparent;
+
+    font-size: 17px;
+    text-align: center;
+}
+
+.calendar-header button {
+    min-height: 32px;
+    padding: 0;
+
+    color: #8a2e58;
+    background-color: #ffc6df;
+    border: 1px solid #e78eb5;
+
+    font-family: "Courier New", Courier, monospace;
+    cursor: pointer;
+}
+
+.calendar-header button:hover {
+    color: white;
+    background-color: #c43478;
+}
+
+.contact-cat {
+    display: block;
+    width: min(100%, 310px);
+    height: auto;
+}
+
+
+/*This is the My work section table*/
+
+.form-section {
+    position: relative;
+
+    width: min(62vw, 850px);
+    margin: 30px auto 80px;
+    padding: 25px;
+
+    background-color: #fff5f8;
+    border: 7px solid #f19bc2;
+}
+
+.form-section h1 {
+    margin: 0 0 12px;
+    text-align: center;
+}
+
+.form-section > p {
+    max-width: 600px;
+    margin: 0 auto 25px;
+    text-align: center;
+}
+
+.project-table {
+    width: 100%;
+    border-spacing: 0 18px;
+    border-collapse: separate;
+    background-color: transparent;
+}
+
+.project-table caption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+}
+
+.project-table thead {
+    color: #8a2e58;
+    background-color: #f8afd4;
+    display: none;
+}
+
+.project-table th,
+.project-table td {
+    padding: 15px;
+    border: none;
+    vertical-align: middle;
+}
+
+.project-table tbody tr {
+    outline: 2px solid #f3b2cf;
+}
+
+.project-table img {
+    display: block;
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid #f19bc2;
+}
+
+.project-table a {
+    display: inline-block;
+    padding: 8px 12px;
+
+
+    color: white;
+    background-color: #c43478;
+    border: 2px solid #8a2e58;
+
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.project-table a:hover,
+.project-table a:focus-visible {
+    color: #8a2e58;
+    background-color: #f8afd4;
+}
+
+.pixi-decoration {
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    width: 100px;
+}
+
+.working-cat {
+    position: absolute;
+    z-index: 2;
+    left: clamp(-250px, -20vw, -190px);
+    top: 120px;
+    width: clamp(220px, 22vw, 330px);
+    max-height: 560px;
+    height: auto;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/*ABOUT PAGE LAYOUT*/
+
+.about-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(320px, 460px)
+        minmax(320px, 460px);
+
+    grid-template-areas:
+        "about about"
+        "languages facts"
+        "camera facts";
+
+    justify-content: center;
+    align-items: start;
+
+    column-gap: 45px;
+    row-gap: 30px;
+
+    padding: 25px 4vw 50px 11vw;
+}
+
+
+/*SHARED ABOUT PAGE STYLES*/
+
+.about-layout h1,
+.about-layout h2 {
+    margin: 0 0 12px;
+
+    color: #b83f77;
+    font-family: "Courier New", Courier, monospace;
+    text-align: center;
+}
+
+.about-me,
+.language-skills,
+.fun-facts {
+    padding: 16px 20px;
+
+    background-color: #fff5f7;
+    border: 3px solid #cc9eb5;
+    box-shadow: 4px 4px 0 rgba(196, 52, 120, 0.18);
+}
+
+
+/*ABOUT ME INTRODUCTION*/
+
+.about-top {
+    grid-area: about;
+
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.about-me {
+    flex: 1;
+    min-width: 0;
+}
+
+.about-me h1 {
+    margin: 0 0 6px;
+}
+
+.about-me p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+
+/* Fairy cat beside the About Me box */
+
+.about-me-image {
+    flex: 0 1 340px;
+    min-width: 240px;
+}
+
+.about-me-image img {
+    display: block;
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+
+/*LANGUAGE SKILLS*/
+
+.language-skills {
+    grid-area: languages;
+    text-align: center;
+}
+
+.language-skills img {
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    margin: 0 auto;
+}
+
+
+/* FUN FACTS*/
+
+.fun-facts {
+    grid-area: facts;
+    margin-top: 160px;
+    padding: 18px 22px;
+}
+
+.fun-facts ul {
+    margin: 0;
+    padding-left: 28px;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.fun-facts li {
+    margin-bottom: 12px;
+}
+
+.fun-facts li::marker {
+    color: #C43478;
+}
+
+
+/* INTERACTIVE CAMERA */
+
+.camera-image {
+    grid-area: camera;
+    position: relative;
+    width: max-content;
+    max-width: 100%;
+    margin: 12px auto 0;
+    text-align: center;
+}
+
+.camera-image h2 {
+   position: absolute;
+   z-index: 2;
+
+   top: 60px;
+   left: 50%;
+
+   width: max-content;
+   margin: 0;
+   padding: 0;
+
+   color: #ff4f87;
+   background: transparent;
+   border: none;
+
+   font-family: 'Courier New', Courier, monospace;
+   font-size: 22px;
+   font-weight: bold;
+   white-space: nowrap;
+   
+   transform: translateY(8px) rotate(10deg);
+}
+
+.camera-button {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.camera-button img {
+    display: block;
+    width: clamp(300px, 34vw, 430px);
+    max-width: 100%;
+    aspect-ratio: 1.25;
+    height: auto;
+    object-fit: cover;
+    object-position: center 55%;
+}
+
+
+/* FAVORITES PAGE */
+
+.favorite-section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 420px));
+    justify-content: center;
+    align-items: start;
+    gap: 18px 32px;
+    width: min(960px, calc(100% - 220px));
+    margin: 30px auto 70px;
+    padding: 24px;
+}
+
+.favorite-section > h1,
+.favorite-section > h2 {
+    margin: 0;
+    color: #b83f77;
+    font-family: "Courier New", Courier, monospace;
+    text-align: center;
+}
+
+.favorite-section > h1,
+.favorite-section > ul:first-of-type {
+    grid-column: 2;
+}
+
+.favorite-section > h2,
+.favorite-section > ul:nth-of-type(2) {
+    grid-column: 1;
+}
+
+.favorite-section > ul {
+    margin: 0;
+    padding: 18px 18px 18px 42px;
+    background-color: #fff5f7;
+    border: 3px solid #f19bc2;
+    box-shadow: 4px 4px 0 rgba(196, 52, 120, 0.18);
+    line-height: 1.6;
+}
+
+.favorite-music {
+    width: min(700px, calc(100% - 220px));
+    margin: 30px auto;
+    padding: 18px;
+
+    background-color: #fff5f8;
+    border: 3px solid #f19bc2;
+    box-shadow: 4px 4px 0 rgba(196, 52, 120, 0.18);
+
+    text-align: center;
+}
+
+.favorite-music h2 {
+    color: #b83f77;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.favorite-music iframe {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+
+    border: 3px solid #ef8fba;
+}
+
+.music-player {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    display: block;
+    width: min(100%, 380px);
+    max-height: 245px;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.matcha-cat {
+    grid-column: 2;
+    grid-row: 3 / span 2;
+    display: block;
+    width: min(100%, 360px);
+    height: auto;
+    margin: -15px auto 0;
+    object-fit: contain;
+}
+
+.gallery {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.gallery > div {
+    min-width: 0;
+    padding: 12px;
+    background-color: #f8afd4;
+    border: 3px solid #f19bc2;
+    box-shadow: 3px 3px 0 rgba(196, 52, 120, 0.18);
+}
+
+.gallery h3 {
+    margin: 0 0 8px;
+    color: #8a2e58;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.gallery img {
+    display: block;
+    width: 100%;
+    height: 145px;
+    object-fit: contain;
+    background-color: #fff5f7;
+}
+
+.gallery ul {
+    margin: 10px 0 0;
+    padding-left: 22px;
+    line-height: 1.35;
+}
+
+.camera-button:hover {
+    transform: scale(1.04);
+}
+
+.camera-button:focus-visible {
+    outline: 3px solid #a8386c;
+    outline-offset: 5px;
+}
+
+
+/* FUNNY PHOTO RESULT */
+
+.photo-result {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.photo-result[hidden] {
+    display: none;
+}
+
+.photo-result img {
+    display: block;
+    width: 250px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.photo-result p {
+    display: inline-block;
+
+    margin: 10px 0 0;
+    padding: 8px 12px;
+
+    color: #8a2e58;
+    background-color: #f8afd4;
+
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+}
+
+
+/* TABLET LAYOUT */
+
+@media (max-width: 768px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "about"
+            "languages"
+            "facts"
+            "camera";
+
+        padding: 20px 25px;
+    }
+
+    /* Place the fairy cat below the introduction */
+    .about-top {
+        flex-direction: column;
+    }
+
+    .about-me {
+        width: 100%;
+    }
+
+    header {
+        height: auto;
+    }
+
+    /* Hide the desktop-style sidebar on smaller screens */
+    .side-section {
+        display: none;
+    }
+
+    .working-cat {
+        position: static;
+        display: block;
+        width: min(70%, 300px);
+        margin: 20px auto;
+    }
+
+    .favorite-section {
+        grid-template-columns: 1fr;
+        width: min(100% - 30px, 560px);
+        padding: 15px;
+    }
+
+    .favorite-section > *,
+    .music-player,
+    .matcha-cat,
+    .gallery {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .favorite-music {
+        width: min(100% - 30px, 560px);
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-layout {
+        grid-template-columns: 1fr;
+        width: min(100% - 30px, 600px);
+    }
+
+    .contact-side {
+        width: 100%;
+    }
+
+    .contact-cat {
+        width: min(75%, 280px);
+    }
+}
+
+
+/* Phone Layout*/
+
+@media (max-width: 480px) {
+    .about-layout {
+        row-gap: 15px;
+        padding: 15px;
+    }
+
+    .about-me,
+    .language-skills,
+    .fun-facts {
+        padding: 12px;
+    }
+
+    .about-me-image {
+        flex-basis: auto;
+    }
+
+    .about-me-image img {
+        width: 230px;
+    }
+
+    .camera-button img {
+        width: min(100%, 340px);
+    }
+
+    .photo-result img {
+        width: 200px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
 }
