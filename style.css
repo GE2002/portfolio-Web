@@ -70,7 +70,7 @@ body {
     min-height: 100vh;
     margin: 0;
 
-    background-image: url("images/coquette.jpeg");
+    background-image: url("images/assets/coquette.jpeg");
     background-size: 100% auto;
     background-position: center top;
     background-repeat: repeat-y;
@@ -371,7 +371,7 @@ header {
     position: absolute;
     z-index: 4;
     top: 420px;
-    right: 18%;
+    right: 38%;
     width: 680px;
 }
 
@@ -423,7 +423,7 @@ header {
    text-align: center;
 
    background-color: #fff5f7;
-   background-image: url(images/pinkBow.png);
+   background-image: url(images/assets/pinkBow.png);
    background-size: 100% 100%;
    background-repeat: no-repeat;
   
