@@ -927,7 +927,7 @@ header {
    background: transparent;
    border: none;
 
-   font-family: 'Courier New', Courier, monospace;
+   font-family: "Press Start 2P", monospace;
    font-size: 22px;
    font-weight: bold;
    white-space: nowrap;
@@ -999,31 +999,43 @@ header {
     line-height: 1.6;
 }
 
-.favorite-music {
-    width: min(700px, calc(100% - 220px));
-    margin: 30px auto;
-    padding: 18px;
-
-    background-color: #fff5f8;
-    border: 3px solid #f19bc2;
-    box-shadow: 4px 4px 0 rgba(196, 52, 120, 0.18);
-
-    text-align: center;
-}
 
 .favorite-music h2 {
     color: #b83f77;
     font-family: "Courier New", Courier, monospace;
+    text-align: center;
+    font-size: 52px;
 }
 
-.favorite-music iframe {
+/*Holds the image and video together*/
+.music-frame {
+    position: relative;
+    width: min(100%, 700px);
+    aspect-ratio: 3000/1688;
+    margin: 0 auto;
+}
+
+/*Pink music-player image*/
+.music-frame img {
     display: block;
     width: 100%;
-    max-width: 500px;
-    aspect-ratio: 16 / 9;
-    margin: 0 auto;
+    height: 100%;
+}
 
-    border: 3px solid #ef8fba;
+/*Places the video over the white screen*/
+.music-frame iframe {
+    position: absolute;
+    
+    left: 10.7%;
+    top: 31%;
+    
+    width: 32%;
+    height: 58%;
+    
+    max-width: none;
+    margin: 0;
+    border: 2px solid #5f4550;
+    aspect-ratio: auto;
 }
 
 .music-player {
