@@ -155,6 +155,55 @@ if (reminderButton && reminderText) {
 }
 
 
+/* CONTACT FORM */
+
+const contactForm = document.querySelector("#contactForm");
+const nameInput = document.querySelector("#fname");
+const emailInput = document.querySelector("#email");
+
+const nameError = document.querySelector("#nameError");
+const emailError = document.querySelector("#emailError");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", function (event) {
+        let formIsValid = true;
+
+        /* Removes old error messages */
+
+        nameError.textContent = "";
+        emailError.textContent = "";
+
+        nameInput.classList.remove("input-error");
+        emailInput.classList.remove("input-error");
+
+        /* Checks the name */
+
+        if (nameInput.value.trim() === "") {
+            nameError.textContent = "Please enter your name.";
+            nameInput.classList.add("input-error");
+            formIsValid = false;
+        }
+
+        /* Checks the email */
+
+        if (emailInput.value.trim() === "") {
+            emailError.textContent = "Please enter your email.";
+            emailInput.classList.add("input-error");
+            formIsValid = false;
+        } else if (!emailInput.validity.valid) {
+            emailError.textContent = "Please enter a valid email.";
+            emailInput.classList.add("input-error");
+            formIsValid = false;
+        }
+
+        /* Stops the form if there is an error */
+
+        if (!formIsValid) {
+            event.preventDefault();
+        }
+    });
+}
+
 /* CONTACT CALENDAR */
 
 const calendarTitle = document.querySelector("#calendarTitle");

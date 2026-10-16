@@ -1110,7 +1110,7 @@ header {
 }
 
 
-/* FUNNY PHOTO RESULT */
+/* Funny photo result */
 
 .photo-result {
     margin-top: 15px;
@@ -1142,6 +1142,42 @@ header {
     font-weight: bold;
 }
 
+.form-error {
+    min-height: 20px;
+    margin: 4px 0 12px;
+    color: #a51450;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.input-error {
+    border: 2px solid #a51450;
+    background-color: #fff0f5;
+}
+
+/*Footer*/
+
+.site-footer {
+    width: 100%;
+    padding: 8px;
+    margin-top: 40px;
+    text-align: center;
+    color: #8f2858;
+    background-color: #fff0f5;
+    border-top: 4px solid #ef91bd;
+    font-family: "Courier New", monospace;
+}
+
+.site-footer p {
+    margin: 4px;
+}
+
+.site-footer::before {
+    content: "♡ ────────── ♡";
+    display: block;
+    margin-bottom: 8px;
+    color: #e34d92;
+}
 
 /* Larger tablets */
 
@@ -1325,7 +1361,7 @@ header {
     }
 
     .gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
     }
 
     /* Contact page */
@@ -1433,15 +1469,49 @@ header {
 
     /* Favorites page */
     .favorite-section {
+        display: block;
         width: calc(100% - 20px);
+        margin: 20px auto;
         padding: 10px;
     }
+
+    .favorite-section > h1,
+    .favorite-section > h2,
+    .favorite-section > ul,
+    .matcha-cat {
+        margin-bottom: 20px;
+    }
+
 
     .favorite-section > ul {
         padding: 15px 15px 15px 35px;
     }
 
     .gallery {
-        grid-template-columns: 1fr;
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .gallery > div {
+        min-width: 0;
+        padding: 7px;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    .gallery h3 {
+        font-size: 15px;
+    }
+
+    .gallery ul {
+        padding-left: 16px;
+        font-size: 12px;
     }
 }
