@@ -7,6 +7,12 @@ html {
     scrollbar-color: auto;
 }
 
+img,
+iframe,
+video {
+    max-width: 100%;
+}
+
 /* Chrome, Edge, and Safari */
 html::-webkit-scrollbar {
     width: 18px;
@@ -1137,39 +1143,100 @@ header {
 }
 
 
-/* TABLET LAYOUT */
+/* Larger tablets */
+
+@media (max-width: 1100px) {
+    nav {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding-inline: 20px;
+    }
+
+    nav a {
+        flex: 1 1 130px;
+        width: auto;
+        max-width: 180px;
+        font-size: 17px;
+    }
+}
+
+
+/* Tablet layout */
 
 @media (max-width: 768px) {
+    header {
+        height: auto;
+    }
+
+    /* Hide the desktop icons */
+    .side-section {
+        display: none;
+    }
+
+    /* Home page */
+    .top-content {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+        gap: 25px;
+        min-height: auto;
+        padding: 20px;
+    }
+
+    .drawing-box,
+    .welcome,
+    .reminders {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        margin: 0;
+    }
+
+    .drawing-box {
+        margin-bottom: 60px;
+    }
+
+    .welcome {
+        padding: 30px 18px;
+    }
+
+    .reminders {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: min(100%, 600px);
+    }
+
+    /* About page */
     .about-layout {
         grid-template-columns: 1fr;
-
         grid-template-areas:
             "about"
             "languages"
             "facts"
             "camera";
-
         padding: 20px 25px;
     }
 
-    /* Place the fairy cat below the introduction */
     .about-top {
         flex-direction: column;
+        gap: 20px;
     }
 
-    .about-me {
+    .about-me,
+    .about-me-image,
+    .camera-image {
         width: 100%;
     }
 
-    header {
-        height: auto;
+    .about-me-image {
+        min-width: 0;
     }
 
-    /* Hide the desktop-style sidebar on smaller screens */
-    .side-section {
-        display: none;
+    .fun-facts {
+        margin-top: 0;
     }
 
+    /* Work page */
     .working-cat {
         position: static;
         display: block;
@@ -1177,13 +1244,79 @@ header {
         margin: 20px auto;
     }
 
-    .favorite-section {
-        grid-template-columns: 1fr;
-        width: min(100% - 30px, 560px);
+    .form-section {
+        width: min(calc(100% - 30px), 850px);
         padding: 15px;
     }
 
-    .favorite-section > *,
+    .project-table,
+    .project-table tbody,
+    .project-table tr,
+    .project-table th,
+    .project-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .project-table {
+        border-spacing: 0;
+        overflow: visible;
+    }
+
+    .project-table tbody {
+        display: grid;
+        gap: 20px;
+    }
+
+    .project-table tbody tr {
+        padding: 15px;
+        background-color: #fff5f8;
+        outline: 2px solid #f3b2cf;
+    }
+
+    .project-table th,
+    .project-table td {
+        padding: 8px;
+        text-align: center;
+    }
+
+    .project-table img {
+        width: min(100%, 280px);
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .project-table a {
+        white-space: normal;
+    }
+
+    /* Favorites page */
+    .favorite-music,
+    .favorite-section {
+        width: min(calc(100% - 30px), 560px);
+    }
+
+    .favorite-music {
+        margin: 20px auto;
+        padding: 12px;
+    }
+
+    .favorite-music h2 {
+        font-size: clamp(26px, 7vw, 36px);
+    }
+
+    .music-frame {
+        width: 100%;
+    }
+
+    .favorite-section {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .favorite-section > h1,
+    .favorite-section > h2,
+    .favorite-section > ul,
     .music-player,
     .matcha-cat,
     .gallery {
@@ -1191,17 +1324,14 @@ header {
         grid-row: auto;
     }
 
-    .favorite-music {
-        width: min(100% - 30px, 560px);
-    }
-
     .gallery {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    /* Contact page */
     .contact-layout {
         grid-template-columns: 1fr;
-        width: min(100% - 30px, 600px);
+        width: min(calc(100% - 30px), 600px);
     }
 
     .contact-side {
@@ -1214,9 +1344,62 @@ header {
 }
 
 
-/* Phone Layout*/
+/* Phone layout */
 
 @media (max-width: 480px) {
+    /* Navigation */
+    nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding-inline: 12px;
+        padding-bottom: 15px;
+    }
+
+    nav a {
+        width: auto;
+        max-width: none;
+        padding: 8px;
+        font-size: 15px;
+    }
+
+    nav a:last-child {
+        grid-column: 1 / -1;
+    }
+
+    /* Home page */
+    .top-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 15px;
+    }
+
+    .reminders {
+        grid-column: 1;
+    }
+
+    .canvas-controls {
+        position: static;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 10px;
+        transform: none;
+    }
+
+    .drawing-box {
+        margin-bottom: 0;
+    }
+
+    .welcome h1 {
+        font-size: 32px;
+    }
+
+    .welcome p {
+        font-size: 18px;
+    }
+
+    /* About page */
     .about-layout {
         row-gap: 15px;
         padding: 15px;
@@ -1236,12 +1419,26 @@ header {
         width: 230px;
     }
 
+    .fun-facts ul {
+        padding-left: 22px;
+    }
+
     .camera-button img {
         width: min(100%, 340px);
     }
 
     .photo-result img {
         width: 200px;
+    }
+
+    /* Favorites page */
+    .favorite-section {
+        width: calc(100% - 20px);
+        padding: 10px;
+    }
+
+    .favorite-section > ul {
+        padding: 15px 15px 15px 35px;
     }
 
     .gallery {
